@@ -15,12 +15,12 @@ const createProduct = async (req, res) => {
   try {
     const {
       product_name,
-      product_purchase_price,
-      product_selling_price,
-      product_stock,
+      // product_purchase_price,
+      // product_selling_price,
+      // product_stock,
     } = req.body;
-    // const { product_purchase_price, product_selling_price, product_stock } =
-    //   parseInt(req.body);
+    const { product_purchase_price, product_selling_price, product_stock } =
+      parseInt(req.body);
     const uploadImage = req?.file
       ? await cloudinary.uploader.upload(req?.file?.path, { folder: "recipe" })
       : null;
@@ -48,10 +48,12 @@ const updateProduct = async (req, res) => {
     const { id } = req.params;
     const {
       product_name,
-      product_purchase_price,
-      product_selling_price,
-      product_stock,
+      // product_purchase_price,
+      // product_selling_price,
+      // product_stock,
     } = req.body;
+    const { product_purchase_price, product_selling_price, product_stock } =
+      parseInt(req.body);
     const updateImage = req?.file?.path
       ? await cloudinary.uploader.upload(req?.file?.path, { folder: "recipe" })
       : undefined;
