@@ -6,19 +6,19 @@ const validateToken = require("../../middleware/verifyToken");
 Router.get("/product", controller.getAllProduct);
 Router.post(
   "/product/add",
-  validateToken.checkToken,
+  //   validateToken.checkToken,
   prodcutUpload,
   controller.createProduct
 );
 Router.patch(
   "/product/edit/:id",
-  validateToken.checkToken,
+  //   validateToken.checkToken,
   prodcutUpload,
   controller.updateProduct
 );
 Router.delete(
   "/product/delete/:id",
-  validateToken.checkToken,
+  //   validateToken.checkToken,
   controller.deleteProduct
 );
 
