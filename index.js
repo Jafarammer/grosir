@@ -13,9 +13,9 @@ app.use(helmet());
 // set cors
 const corsOptions = {
   origins: [
-    // "https://grosirfe.web.app/",
+    "https://grosirfe.web.app/",
     // "https://sweet-cake-responsive.vercel.app",
-    "http://localhost:3000",
+    // "http://localhost:3000",
   ],
 };
 app.use(cors(corsOptions));
