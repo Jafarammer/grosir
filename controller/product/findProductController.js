@@ -14,4 +14,22 @@ const getIdProduct = async (req, res) => {
   }
 };
 
-module.exports = { getIdProduct };
+const getNameProduct = async (req, res) => {
+  try {
+    const { product_name } = req.query;
+    const productName = `%${product_name.toLowerCase()}%`;
+    const getData = await findModel.findNameProductModel(productName);
+    if (getData.rowCount > 0) {
+      return res.status(200).send({
+        data: getData.rows,
+        totalData: getData.rowCount,
+      });
+    } else {
+      return res.status(404).send(`Product ${product_name} not found!`);
+    }
+  } catch (error) {
+    return res.status(500).send("Internal server error!!!");
+  }
+};
+
+module.exports = { getIdProduct, getNameProduct };
